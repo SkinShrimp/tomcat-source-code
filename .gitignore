@@ -26,3 +26,7 @@ pom.xml
 MakeFile
 hs_err_pid*
 
+.idea/
+target/generated-sources/
+target/generated-test-sources/
+tomcat-source-code.iml
