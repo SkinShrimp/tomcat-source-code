@@ -1,4 +1,4 @@
-package cn.sinohealth.ex01.pyrmont;
+package cn.lww.ex01;
 
 import java.io.OutputStream;
 import java.io.IOException;
