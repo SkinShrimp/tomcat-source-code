@@ -8,6 +8,9 @@ import java.io.OutputStream;
 import java.io.IOException;
 import java.io.File;
 
+/**
+ * 一个简单的Web服务器
+ */
 public class HttpServer {
 
   /** WEB_ROOT is the directory where our HTML and other files reside.
@@ -33,6 +36,7 @@ public class HttpServer {
   }
 
   public void await() {
+    //服务器套接字对的
     ServerSocket serverSocket = null;
     int port = 8080;
     try {
@@ -49,23 +53,30 @@ public class HttpServer {
       InputStream input = null;
       OutputStream output = null;
       try {
+        //只有在8080端口接受到http请求的时候才会返回
         socket = serverSocket.accept();
+        //将字节流输入到内存，需要用到的对象
         input = socket.getInputStream();
+        //从内存中输出字节流，需要用到的对象 可能借助PrintWriter
         output = socket.getOutputStream();
 
         // create Request object and parse
+        //创建一个Request方法,并且使用parse方法去解析它
         Request request = new Request(input);
         request.parse();
 
         // create Response object
+        //创建一个Response对象并把Request对象设置给他
         Response response = new Response(output);
         response.setRequest(request);
         response.sendStaticResource();
 
         // Close the socket
+        //关闭套接字
         socket.close();
 
         //check if the previous URI is a shutdown command
+        //检查是否是关闭应用命令是的话关闭应用
         shutdown = request.getUri().equals(SHUTDOWN_COMMAND);
       }
       catch (Exception e) {

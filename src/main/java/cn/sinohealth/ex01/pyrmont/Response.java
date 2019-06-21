@@ -12,7 +12,7 @@ import java.io.File;
     [ message-body ]
     Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 */
-
+//响应对象是通过传递由套接字获得的 OutputStream对象给 HttpServer类的await 方法来构造的。
 public class Response {
 
   private static final int BUFFER_SIZE = 1024;
@@ -23,10 +23,13 @@ public class Response {
     this.output = output;
   }
 
+  //传递一个 Request 对象给 Response 对象。
   public void setRequest(Request request) {
     this.request = request;
   }
 
+  //获取静态资源的方法
+  //通过传递上一级目录的路径和子路径给 File 累的构造方法来实例化 java.io.File 类。
   public void sendStaticResource() throws IOException {
     byte[] bytes = new byte[BUFFER_SIZE];
     FileInputStream fis = null;
