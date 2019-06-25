@@ -38,7 +38,12 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>8.5.3</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,6 +87,20 @@
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.0.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>${tomcat.version}</version>
+                    <configuration>
+                        <server>test</server>
+                        <path>/${project.artifactId}</path>
+                        <uriEncoding>${project.build.sourceEncoding}</uriEncoding>
+                        <!--<url>http://192.168.0.93:8888/manager/text</url>-->
+                        <!--<port>8888</port>-->
+                        <!--<username>tomcat</username>-->
+                        <!--<password>tomcat</password>-->
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

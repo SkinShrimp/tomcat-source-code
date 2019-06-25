@@ -21,6 +21,8 @@ public class Request {
 
   //解析HTTP请求
   //parse 方法解析 HTTP 请求里边的原始数据,
+  //功能 1:输出原始数据
+  //     2:取出原始数据中的URI
   public void parse() {
     // Read a set of characters from the socket
     StringBuffer request = new StringBuffer(2048);

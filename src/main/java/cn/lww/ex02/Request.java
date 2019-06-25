@@ -23,6 +23,11 @@ public class Request implements ServletRequest {
     return uri;
   }
 
+  /**
+   * 从请求的字符串中获取uri
+   * @param requestString
+   * @return
+   */
   private String parseUri(String requestString) {
     int index1, index2;
     index1 = requestString.indexOf(' ');
@@ -34,6 +39,7 @@ public class Request implements ServletRequest {
     return null;
   }
 
+  //解析从浏览器接收到的信息，并打印出来
   public void parse() {
     // Read a set of characters from the socket
     StringBuffer request = new StringBuffer(2048);

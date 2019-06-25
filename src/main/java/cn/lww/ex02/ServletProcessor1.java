@@ -9,6 +9,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+//用于处理 servlet 的 HTTP 请求
 public class ServletProcessor1 {
 
   public void process(Request request, Response response) {
