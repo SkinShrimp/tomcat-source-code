@@ -20,11 +20,13 @@ public class ServletProcessor1 {
 
     try {
       // create a URLClassLoader
+      //指向了加载类时候的查找位置
       URL[] urls = new URL[1];
       URLStreamHandler streamHandler = null;
       File classPath = new File(Constants.WEB_ROOT);
       // the forming of repository is taken from the createClassLoader method in
       // org.apache.catalina.startup.ClassLoaderFactory
+      //一个类加载器可以找到 servlet 的地方被称为资源库
       String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString() ;
       // the code for forming the URL is taken from the addRepository method in
       // org.apache.catalina.loader.StandardClassLoader class.
