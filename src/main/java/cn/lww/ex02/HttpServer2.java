@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
+//提高安全性问题
 public class HttpServer2 {
 
   // shutdown command

@@ -48,6 +48,7 @@ public class ServletProcessor1 {
 
     try {
       servlet = (Servlet) myClass.newInstance();
+      //面向接口编程
       servlet.service((ServletRequest) request, (ServletResponse) response);
     }
     catch (Exception e) {
